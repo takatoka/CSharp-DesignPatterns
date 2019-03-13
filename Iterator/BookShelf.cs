@@ -10,7 +10,7 @@ namespace Iterator
     /// IEnumerableインターフェースを実装することで、IEnumrator(数え上げるクラス)を生成できるようになる
     /// 集合体に対する追加、削除といった操作を実装する
     /// </summary>
-    public class BookShelf : IEnumerable
+    public class BookShelf : IEnumerable<Book>
     {
         private List<Book> _books;
         private int last = 0;
@@ -37,7 +37,12 @@ namespace Iterator
             return last;
         }
 
-        public IEnumerator GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
+        }
+
+        public IEnumerator<Book> GetEnumerator()
         {
             return new BookShelfIterator(this);
         }
