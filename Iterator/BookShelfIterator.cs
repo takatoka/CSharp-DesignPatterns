@@ -10,7 +10,7 @@ namespace Iterator
     /// IEnumeratorを実装すると、集合体に対する操作が提供できるようになる
     /// 集合体に対するアクセス、インデックスの管理をする
     /// </summary>
-    public class BookShelfIterator : IEnumerator
+    public class BookShelfIterator : IEnumerator<Book>
     {
         private BookShelf _bookShelf;
         private int _index;
@@ -21,7 +21,13 @@ namespace Iterator
             _index = -1;
         }
 
-        public object Current => _bookShelf.GetBookAt(_index);
+        public Book Current => _bookShelf.GetBookAt(_index);
+
+        object IEnumerator.Current => (object)Current;
+
+        public void Dispose()
+        {
+        }
 
         public bool MoveNext()
         {
