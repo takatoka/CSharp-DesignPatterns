@@ -12,12 +12,13 @@ namespace Iterator
     /// </summary>
     public class BookShelf : IEnumerable
     {
-        private Book[] _books;
+        private List<Book> _books;
         private int last = 0;
 
         public BookShelf(int maxSize)
         {
-            _books = new Book[maxSize];
+            _books = new List<Book>();
+            _books.Capacity = maxSize;
         }
 
         public Book GetBookAt(int index)
@@ -27,7 +28,7 @@ namespace Iterator
 
         public void AppendBook(Book book)
         {
-            _books[last] = book;
+            _books.Add(book);
             last++;
         }
 

@@ -23,7 +23,8 @@ namespace Iterator
                 Console.WriteLine(book.Name);
             }
 
-            Console.WriteLine("----------Reset Iterator----------");
+            Console.WriteLine();
+            Console.WriteLine("Iterator is initialized");
             iterator.Reset();
             while (iterator.MoveNext())
             {
