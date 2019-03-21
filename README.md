@@ -65,3 +65,12 @@ foreach(var book in bookShelf)
 	Console.WriteLine(book.Name);
 }
 ```
+
+### TemplateMethod
+- ロジック、アルゴリズム、処理の流れの共通化ができる
+- 処理の内容の具体的な方法はサブクラスに分離できる
+  - 例えば、ファイルに書き込み処理をしたいとき、
+  - スーパークラスに Open(), Print(), Close()の順に処理するということを記述する
+  - テキストファイルに書き込めるようにしたいなら、サブクラスにOpen(), Print(), Close()にテキストファイルを操作する内容を記述
+  - Excleファイルに書き込めるようにしたいなら、サブクラスにOpen(), Print(), Close()にExcelファイルを操作する内容を記述
+- インターではなく
